@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <style>
+      table,
+      td,
+      th {
+        border: 1px solid black;
+        border-collapse: collapse; /*테두리 하나로 합치기*/
+        text-align: center;
+      }
+
+      header {
+        text-align: center;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>박은서(Eunseo Park)</h1>
+      <p>
+        안녕하세요 신입 개발자 박은서입니다. <br />
+        저는 도전하는 것을 좋아합니다.
+      </p>
+    </header>
+    <main>
+      <section>
+        <div class="container">
+          <h2>📚보유 기술(Skills)</h2>
+          <hr />
+          <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>⏰시간표(Schedule)</h2>
+          <table>
+            <!-- <h3>2026년 1학기 시간표</h3> -->
+            <caption>
+              2026년 1학기 시간표
+            </caption>
+            <thead>
+              <tr>
+                <th>시간</th>
+                <th>월요일</th>
+                <th>화요일</th>
+                <th>수요일</th>
+                <th>목요일</th>
+                <th>금요일</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1교시</td>
+                <td rowspan="2">국어</td>
+                <td rowspan="2">영어</td>
+                <td>수학</td>
+                <td>과학</td>
+                <td>사회</td>
+              </tr>
+              <tr>
+                <td>2교시</td>
+                <td colspan="2">체육</td>
+                <td>영어</td>
+                <!-- <td>수학</td> -->
+              </tr>
+              <tr>
+                <td>3교시</td>
+                <td>영어</td>
+                <td>과학</td>
+                <td>체육</td>
+                <td>국어</td>
+                <td>사회</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr />
+
+        <div>
+          <h2>🖼️좋아하는 사진</h2>
+          <figure>
+            <img src="cute.png" alt="깨득이사진" width="200" height="200" />
+            <figcaption>제가 가장 좋아하는 이모티콘 입니다.</figcaption>
+          </figure>
+        </div>
+
+        <div>
+          <h2>🎵좋아하는 음악</h2>
+          <audio src="sample/audio/major.mp3" controls></audio>
+        </div>
+
+        <hr />
+
+        <div>
+          <h2>🔗관련 링크(Links)</h2>
+          <p>
+            저의 포트폴리오를 더 보고 싶다면
+            <a href="https://github.com/dmstj0162" target="_blank">제 깃허브</a
+            >를 방문해주세요.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <h2>📝방명록(Guestbook)</h2>
+          <form action="#" method="post">
+            <fieldset>
+              <legend id="">방명록 작성</legend>
+              <div>
+                <label for="user-id">아이디:</label>
+                <input type="text" id="user-id" name="userId" />
+              </div>
+
+              <div>
+                <p>방문 목적:</p>
+                <input
+                  type="radio"
+                  id="route-friend"
+                  name="route"
+                  value="friend"
+                />
+                <label for="route-friend">친구 방문</label>
+                <input
+                  type="radio"
+                  id="route-study"
+                  name="route"
+                  value="study"
+                />
+                <label for="route-study">공부</label>
+                <input type="radio" id="route-etc" name="route" value="etc" />
+                <label for="route-etc">기타</label>
+              </div>
+
+              <div>
+                <p>관심사:</p>
+                <input
+                  type="checkbox"
+                  id="hobby-music"
+                  name="hobby"
+                  value="music"
+                />
+                <label for="hobby-music">음악</label>
+                <input
+                  type="checkbox"
+                  id="hobby-movie"
+                  name="hobby"
+                  value="movie"
+                />
+                <label for="hobby-movie">영화</label>
+                <input
+                  type="checkbox"
+                  id="hobby-excercise"
+                  name="hobby"
+                  value="hobby-excercise"
+                />
+                <label for="hobby-excercise">운동</label><br />
+                <br />
+                <label for="memo">내용:</label>
+                <textarea name="memo" id="memo" rows="3"></textarea>
+              </div>
+
+              <button type="submit">남기기</button>
+            </fieldset>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>Copyright 2026. Eunseo Park. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
