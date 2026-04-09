@@ -1,6 +1,7 @@
 /**
  * 즉시 실행 함수(IIFE)
  * 함수를 정의하자마자 딱 한 번만 실행되는 '일회용 함수'이다.
+ * 목적 : 전역 오염 방지 + 변수 보호
  */
 
 (function () {
@@ -11,7 +12,7 @@
 
 // (function() {}) ();
 
-// console.log(secretMessage);
+// console.log(secretMessage); // 내부 변수 = 외부 접근 불가
 
 const result = (function (name) {
   let a = 10;
