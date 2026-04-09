@@ -11,11 +11,33 @@
         border: 1px solid black;
         border-collapse: collapse; /*테두리 하나로 합치기*/
         text-align: center;
+        width: 50%;
       }
 
       header {
         text-align: center;
         line-height: 1.5;
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        list-style: none;
+        gap: 8px;
+        text-align: left;
+        width: 10px;
+      }
+      .item {
+        color: white;
+        background-color: rgb(0, 110, 255);
+        border-radius: 20px;
+        padding: 10px;
+      }
+      .schedule h2 {
+        margin: 80px 0 0 0;
+        text-align: left;
+      }
+      caption {
+        margin: 20px 0 0 0;
       }
     </style>
   </head>
@@ -28,56 +50,42 @@
       </p>
     </header>
     <main>
-      <section>
-        <div class="container">
+      <section class="container">
+        <div>
           <h2>📚보유 기술(Skills)</h2>
           <hr />
-          <ul>
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>JavaScript</li>
-          </ul>
+          <div class="grid-container">
+            <li class="item">HTML5</li>
+            <li class="item">CSS3</li>
+            <li class="item">JavaScript</li>
+          </div>
         </div>
 
-        <div>
+        <div class="schedule">
           <h2>⏰시간표(Schedule)</h2>
+          <hr />
           <table>
-            <!-- <h3>2026년 1학기 시간표</h3> -->
             <caption>
-              2026년 1학기 시간표
+              2025년 1학기 시간표
             </caption>
+            <!-- <h3>2026년 1학기 시간표</h3> -->
             <thead>
               <tr>
                 <th>시간</th>
                 <th>월요일</th>
-                <th>화요일</th>
                 <th>수요일</th>
-                <th>목요일</th>
-                <th>금요일</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>1교시</td>
-                <td rowspan="2">국어</td>
-                <td rowspan="2">영어</td>
-                <td>수학</td>
-                <td>과학</td>
-                <td>사회</td>
+                <td>웹 프로그래밍 기초</td>
+                <td rowspan="2">자료구조</td>
               </tr>
               <tr>
                 <td>2교시</td>
-                <td colspan="2">체육</td>
-                <td>영어</td>
+                <td>웹 프로그래밍 기초</td>
                 <!-- <td>수학</td> -->
-              </tr>
-              <tr>
-                <td>3교시</td>
-                <td>영어</td>
-                <td>과학</td>
-                <td>체육</td>
-                <td>국어</td>
-                <td>사회</td>
               </tr>
             </tbody>
           </table>
@@ -87,16 +95,17 @@
 
         <div>
           <h2>🖼️좋아하는 사진</h2>
+          <hr />
           <figure>
             <img src="cute.png" alt="깨득이사진" width="200" height="200" />
             <figcaption>제가 가장 좋아하는 이모티콘 입니다.</figcaption>
           </figure>
         </div>
 
-        <div>
+        <!-- <div>
           <h2>🎵좋아하는 음악</h2>
           <audio src="sample/audio/major.mp3" controls></audio>
-        </div>
+        </div> -->
 
         <hr />
 
