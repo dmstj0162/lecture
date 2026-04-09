@@ -8,7 +8,15 @@
 function factorialWithLoop(n) {
   let result = 1;
   for (let i = n; i > 1; i--) {
-    result *= i;
+    result *= i; // result = result * i
   }
   return result;
+}
+console.log(factorialWithLoop(5));
+
+function factorial(n) {
+  if (n <= 1) {
+    return 1;
+  }
+  return n * factorial(n - 1);
 }
