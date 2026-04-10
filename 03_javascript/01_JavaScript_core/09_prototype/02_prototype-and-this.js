@@ -14,9 +14,12 @@ function Student(name) {
 }
 
 // new로 객체 만들 때 연결해줄 대상 설정
+// 새로 만들어질 객체들이 바라볼 프로토타입 객체를 지정하는 설정값이다.
 Student.prototype = user;
+//Student.prototype.login = function() {};
 
 //student.__proto__ == user
+//Student.prototype에 지정된 user 객체를 자동으로 가리키게 된다.
 let student = new Student("홍길동");
 
 console.log(student.activate);
