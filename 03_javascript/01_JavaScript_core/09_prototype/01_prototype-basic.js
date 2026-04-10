@@ -19,7 +19,8 @@ const student = {
 };
 
 // 의미: student 객체가 user 객체를 상속 받는다.
-Object.setPrototypeOf(student, user);
+student.__proto__ = user;
+// Object.setPrototypeOf(student, user);
 
 console.log(student.activate);
 student.login();
