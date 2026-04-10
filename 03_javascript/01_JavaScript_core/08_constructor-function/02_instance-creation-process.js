@@ -27,7 +27,7 @@ console.log("완성된 객체:", student);
 const student2 = Student("몽키", 3);
 console.log(student2);
 
-// console.log(window.name); //'몽키'
+// console.log(global.name); //'몽키'
 
 /**
  * new.target을 이용한 안전장치 설정
