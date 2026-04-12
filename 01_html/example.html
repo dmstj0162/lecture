@@ -5,39 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
     <style>
+      table {
+        width: 100%;
+      }
       table,
       td,
       th {
-        border: 1px solid black;
+        border: 1px solid rgba(189, 187, 187, 0.5);
         border-collapse: collapse; /*테두리 하나로 합치기*/
         text-align: center;
-        width: 50%;
+        margin: 20px;
       }
-
+      h2 {
+        margin: 80px 50px 0 0;
+        text-align: left;
+      }
+      .table-size th {
+        padding: 10px;
+        background-color: rgb(227, 232, 238);
+      }
+      .table-size td {
+        padding: 10px;
+      }
       header {
         text-align: center;
         line-height: 1.5;
       }
+      header p {
+        color: rgb(148, 158, 166);
+      }
+      .container {
+        margin: 0px;
+      }
       .grid-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        display: flex;
+        flex-wrap: wrap;
+        /* grid-template-columns: 1fr 1fr 1fr; */
         list-style: none;
         gap: 8px;
-        text-align: left;
-        width: 10px;
+        /* text-align: left; */
+        padding: 0;
+        margin: 20px 0 0 0;
       }
       .item {
+        display: inline-block;
+        padding: 6px 12px;
         color: white;
         background-color: rgb(0, 110, 255);
         border-radius: 20px;
-        padding: 10px;
       }
-      .schedule h2 {
-        margin: 80px 0 0 0;
-        text-align: left;
+      .hr-bold {
+        border: 2px solid rgba(140, 147, 155, 0.5);
+      }
+      .hr-solid {
+        border: 1px solid rgba(203, 201, 201, 0.5);
+        margin: 50px 0 0 0;
+        padding: 0 50px;
       }
       caption {
         margin: 20px 0 0 0;
+      }
+      .td-font {
+        font-weight: bold;
+      }
+      .fav-pic {
+        margin: 80px 0 0 0;
+        text-align: center;
+      }
+      figcaption {
+        color: rgb(184, 188, 192);
+        padding: 20px;
+      }
+      .guestbook {
+        margin: 20px 0;
+      }
+      .font-bold {
+        font-weight: bold;
+        display: block;
+      }
+      .purpose {
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+      }
+      input[type="text"] {
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid rgba(203, 201, 201, 0.8);
+      }
+      .radio-group {
+        display: block;
+        font-weight: bold;
+      }
+      .radio-group label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      .checkbox-group {
+        display: block;
+        font-weight: bold;
+      }
+      .checkbox-group label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      .content {
+        font-weight: bold;
+      }
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid rgba(203, 201, 201, 0.8);
+      }
+      button {
+        background-color: rgb(49, 175, 91);
+        border-radius: 5px;
+        border: 1px;
+        padding: 10px 20px;
+        margin: 10px 0;
+        color: white;
+      }
+      footer {
+        text-align: center;
+        color: rgba(160, 164, 167, 0.8);
+        padding: 15px;
       }
     </style>
   </head>
@@ -53,22 +144,22 @@
       <section class="container">
         <div>
           <h2>📚보유 기술(Skills)</h2>
-          <hr />
-          <div class="grid-container">
+          <hr class="hr-bold" />
+          <ul class="grid-container">
             <li class="item">HTML5</li>
             <li class="item">CSS3</li>
             <li class="item">JavaScript</li>
-          </div>
+          </ul>
+          <hr class="hr-solid" />
         </div>
 
         <div class="schedule">
           <h2>⏰시간표(Schedule)</h2>
-          <hr />
-          <table>
+          <hr class="hr-bold" />
+          <table class="table-size">
             <caption>
               2025년 1학기 시간표
             </caption>
-            <!-- <h3>2026년 1학기 시간표</h3> -->
             <thead>
               <tr>
                 <th>시간</th>
@@ -78,27 +169,26 @@
             </thead>
             <tbody>
               <tr>
-                <td>1교시</td>
+                <td class="td-font">1교시</td>
                 <td>웹 프로그래밍 기초</td>
                 <td rowspan="2">자료구조</td>
               </tr>
               <tr>
-                <td>2교시</td>
+                <td class="td-font">2교시</td>
                 <td>웹 프로그래밍 기초</td>
-                <!-- <td>수학</td> -->
               </tr>
             </tbody>
           </table>
         </div>
 
-        <hr />
+        <hr class="hr-solid" />
 
-        <div>
+        <div class="fav-pic">
           <h2>🖼️좋아하는 사진</h2>
-          <hr />
+          <hr class="hr-bold" />
           <figure>
-            <img src="cute.png" alt="깨득이사진" width="200" height="200" />
-            <figcaption>제가 가장 좋아하는 이모티콘 입니다.</figcaption>
+            <img src="cute.png" alt="샘플 이미지" />
+            <figcaption>제가 가장 좋아하는 캐릭터 이미지입니다.</figcaption>
           </figure>
         </div>
 
@@ -107,10 +197,11 @@
           <audio src="sample/audio/major.mp3" controls></audio>
         </div> -->
 
-        <hr />
+        <hr class="hr-solid" />
 
-        <div>
+        <div class="link">
           <h2>🔗관련 링크(Links)</h2>
+          <hr class="hr-bold" />
           <p>
             저의 포트폴리오를 더 보고 싶다면
             <a href="https://github.com/dmstj0162" target="_blank">제 깃허브</a
@@ -118,64 +209,110 @@
           </p>
         </div>
       </section>
+      <hr class="hr-solid" />
 
       <section>
-        <div>
+        <div class="form-setting">
           <h2>📝방명록(Guestbook)</h2>
+          <hr class="hr-bold" />
           <form action="#" method="post">
-            <fieldset>
-              <legend id="">방명록 작성</legend>
+            <fieldset class="guestbook">
+              <legend>방명록 남기기</legend>
               <div>
-                <label for="user-id">아이디:</label>
+                <label class="purpose" for="user-id">이름:</label>
                 <input type="text" id="user-id" name="userId" />
               </div>
 
-              <div>
+              <div class="visit">
                 <p>방문 목적:</p>
-                <input
-                  type="radio"
-                  id="route-friend"
-                  name="route"
-                  value="friend"
-                />
-                <label for="route-friend">친구 방문</label>
+                <div class="radio-group">
+                  <label for="route-friend"
+                    ><input
+                      type="radio"
+                      name="route"
+                      id="route-study"
+                      value="study"
+                    />친구 방문</label
+                  >
+                  <label for="route-friend"
+                    ><input
+                      type="radio"
+                      name="route"
+                      id="route-study"
+                      value="study"
+                    />공부</label
+                  >
+                  <label for="route-friend"
+                    ><input
+                      type="radio"
+                      name="route"
+                      id="route-etc"
+                    />기타</label
+                  >
+                </div>
+                <!-- <label class="font-bold" for="route-friend">친구 방문</label>
                 <input
                   type="radio"
                   id="route-study"
                   name="route"
                   value="study"
                 />
-                <label for="route-study">공부</label>
+                <label class="font-bold" for="route-study">공부</label>
                 <input type="radio" id="route-etc" name="route" value="etc" />
-                <label for="route-etc">기타</label>
+                <label class="font-bold" for="route-etc">기타</label> -->
               </div>
 
               <div>
                 <p>관심사:</p>
-                <input
+                <div class="checkbox-group">
+                  <label for="hobby-music"
+                    ><input
+                      type="checkbox"
+                      id="hobby-music"
+                      name="hobby"
+                      value="music"
+                    />음악</label
+                  >
+                  <label for="hobby-movie"
+                    ><input
+                      type="checkbox"
+                      id="hobby-movie"
+                      name="hobby"
+                      value="movie"
+                    />영화</label
+                  >
+                  <label for="hobby-excercise"
+                    ><input
+                      type="checkbox"
+                      id="hobby-excercise"
+                      name="hobby"
+                      value="excercise"
+                    />운동</label
+                  >
+                </div>
+                <!-- <input
                   type="checkbox"
                   id="hobby-music"
                   name="hobby"
                   value="music"
-                />
-                <label for="hobby-music">음악</label>
+                /> -->
+                <!-- <label class="font-bold" for="hobby-music">음악</label>
                 <input
                   type="checkbox"
                   id="hobby-movie"
                   name="hobby"
                   value="movie"
                 />
-                <label for="hobby-movie">영화</label>
+                <label class="font-bold" for="hobby-movie">영화</label>
                 <input
                   type="checkbox"
                   id="hobby-excercise"
                   name="hobby"
                   value="hobby-excercise"
-                />
-                <label for="hobby-excercise">운동</label><br />
-                <br />
-                <label for="memo">내용:</label>
-                <textarea name="memo" id="memo" rows="3"></textarea>
+                /> -->
+                <!-- <label class="font-bold" for="hobby-excercise">운동</label -->
+                <label class="purpose" for="memo">내용:</label>
+                <textarea name="memo" id="memo" rows="5"></textarea>
               </div>
 
               <button type="submit">남기기</button>
@@ -184,6 +321,7 @@
         </div>
       </section>
     </main>
+    <hr class="hr-solid" />
     <footer>
       <p>Copyright 2026. Eunseo Park. All rights reserved.</p>
     </footer>
