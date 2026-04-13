@@ -174,8 +174,6 @@ console.log(makeFullName(studentList));
 
 function sortFromScore(arr) {
   // 코드 작성
-  const scoreList = studentList.map((scores) => scores.sort((a, b) => a - b));
-  console.log(scoreList);
 }
 
 function makeFullName(arr) {
