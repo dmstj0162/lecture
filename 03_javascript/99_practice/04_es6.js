@@ -39,18 +39,18 @@ console.log(mergeArrays);
 나머지 요소: [2, 3, 4, 5]
 */
 
-// const user = {
-//   name: "홍길동",
-//   age: 30,
-//   location: "서울",
-// };
+const user = {
+  name: "홍길동",
+  age: 30,
+  location: "서울",
+};
 
-// const { name, age } = user;
-// console.log(`${name}은 ${age} 살입니다.`);
+const { name, age } = user;
+console.log(`${name}은 ${age} 살입니다.`);
 
-// const [firstArg, ...members] = [1, 2, 3, 4, 5];
-// console.log(`첫 번째 요소: ${firstArg}`);
-// console.log("나머지 요소:", members);
+const [firstArg, ...members] = [1, 2, 3, 4, 5];
+console.log(`첫 번째 요소: ${firstArg}`);
+console.log("나머지 요소:", members);
 
 /*
 3. 클래스와 구조분해 할당을 활용한 학생 관리 시스템
