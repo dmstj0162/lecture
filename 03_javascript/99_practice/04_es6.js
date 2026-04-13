@@ -77,8 +77,21 @@ const studentC = new Student("장보고", 12, 70);
 
 const students = [studentA, studentB, studentC];
 
-const resultName = students.map(({ name }) => name);
-const resultScore = students.map(({ score }) => score);
+//.map + 구조분해할당
+// const resultName = students.map(({ name }) => name);
+// const resultScore = students.map(({ score }) => score);
+
+// console.log("학생 이름: ", resultName);
+// console.log("학생 점수: ", resultScore);
+
+// for...of + 구조분해할당
+const resultName = [];
+const resultScore = [];
+
+for (const { name, score } of students) {
+  resultName.push(name);
+  resultScore.push(score);
+}
 
 console.log("학생 이름: ", resultName);
-console.log("학생 점수: ", resultScore);
+console.log("학생 점수:", resultScore);
