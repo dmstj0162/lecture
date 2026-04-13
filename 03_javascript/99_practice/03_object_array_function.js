@@ -174,8 +174,15 @@ console.log(makeFullName(studentList));
 
 function sortFromScore(arr) {
   // 코드 작성
+  arr.sort((a, b) => b.score - a.score);
 }
 
 function makeFullName(arr) {
   // 코드 작성
+  return arr.map((item) => {
+    return {
+      ...item,
+      name: item.lastName + item.firstName,
+    };
+  });
 }
