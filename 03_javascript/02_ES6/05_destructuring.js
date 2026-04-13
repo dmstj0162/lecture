@@ -84,3 +84,5 @@ function printProductInfo({ id, price, spec: { ram }, producer = "삼성" }) {
 }
 
 printProductInfo(product);
+
+//어려우ㅝㅇ ,,
