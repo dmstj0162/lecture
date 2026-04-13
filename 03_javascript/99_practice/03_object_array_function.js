@@ -15,6 +15,25 @@
 최대값 : 20
 */
 
+const a = 10;
+const b = 20;
+
+function min(a, b) {
+  if (a < b) {
+    return a;
+  }
+  b;
+}
+console.log(min(a, b));
+
+function max(a, b) {
+  if (a < b) {
+    return b;
+  }
+  return a;
+}
+
+console.log(max(a, b));
 /*
 2-2. 화살표 함수로 변경하기
 
@@ -32,6 +51,25 @@
 최대값 : 20
 */
 
+const mins = min((a, b) => {
+  if (a < b) {
+    return a;
+  }
+});
+
+const maxs = max((a, b) => {
+  if (a < b) {
+    return b;
+  }
+});
+
+const minResult = (a, b) => (a < b ? a : b);
+
+const maxResult = (a, b) => (a > b ? a : b);
+
+console.log(min(10, 20));
+console.log(max(10, 20));
+
 /*
 3-2. 객체 생성자로 계산기 객체 만들기
 
@@ -47,12 +85,22 @@
 곱 : 200
 */
 
-function Calculator() {
+function Calculator(a, b) {
   this.a = 10;
   this.b = 20;
   // 코드 작성
-}
+  this.sum = function () {
+    return this.a + this.b;
+  };
 
+  this.multi = function () {
+    return this.a * this.b;
+  };
+}
+const calc = new Calculator(a, b);
+
+console.log(calc.sum());
+console.log(calc.multi());
 /*
 4-2. 숫자값 배열과 문자값 배열 정렬하기
 
@@ -71,6 +119,16 @@ function Calculator() {
 
 let numbers = [20, 100, 37, 54, 88, 9];
 let strings = ["wow", "js", "party", "hello"];
+
+console.log(numbers.sort((a, b) => a - b));
+console.log(numbers.sort((a, b) => b - a));
+console.log(strings.sort());
+
+Array.prototype.descSort = function () {
+  return this.sort((a, b) => b.localeCompare(a));
+};
+strings.descSort();
+console.log(strings);
 
 /*
 5-1. 학생 객체 정렬 및 이름 합성 함수 작성
@@ -109,12 +167,15 @@ const studentList = [
   new Student("관순", "유", 80),
 ];
 
+console.log("여기-----------------------------------");
 sortFromScore(studentList);
 console.log(studentList);
 console.log(makeFullName(studentList));
 
 function sortFromScore(arr) {
   // 코드 작성
+  const scoreList = studentList.map((scores) => scores.sort((a, b) => a - b));
+  console.log(scoreList);
 }
 
 function makeFullName(arr) {
