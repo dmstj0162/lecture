@@ -56,6 +56,7 @@
 
     // 요소 노드 자체의 nodeValue 는 null이다.
     console.log($valueArea.nodeValue);
+    // 텍스트를 바꾸려면, 자식인 '텍스트 노드'를 직접 찾아가야만 한다.
     $valueText.nodeValue = 'nodeVlaue로 변경 완료'
   </script>
 
@@ -69,7 +70,16 @@
 
   <div id="content-area">여기는 <b>굵은</b> 글씨가 있는 영역입니다.</div>
 
-  <script></script>
+  <script>
+    const $contentArea = document.getElementById('content-area')
+
+    // 내부 HTML 태그는 무시하고 텍스트만 전부 가져온다.
+    console.log($contentArea.textContent)
+
+    // 값을 할당하면, 내부의 모든 것을 지우고 이 텍스트로 교체(HTML 태그 인식 못함)
+    $contentArea.textContent = 'textContent로 쉽게 변경! <span> 태그는 무시됨 </span>'
+
+  </script>
 
   <hr />
 
