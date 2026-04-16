@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const user1 = {
+            name: '판다',
+            age: 3,
+            phone: '010-1234-5678',
+            email: 'panda@gmail.com'
+        }
+
+        const user2 = {
+            name: '다람쥐',
+            age: 5,
+            phone: '010-2348-4939',
+            email: 'squirrel@gmail.com'
+        }
+
+        const user3 = {
+            name: '원숭이',
+            age: 5,
+            phone: '010-1847-5428',
+            email: 'monkey@gmail.com'
+        }
+
+        const customStyle = {
+            width: "20rem",
+            height: "15rem",
+            border: '1px solid black',
+            padding: '10px',
+            margin: '20px 0'
+        }
+
+        function NameCard({ name }) {
+            return (
+                <h1>{name}</h1>
+            );
+        }
+
+        function AgeCard({ age }) {
+            return (
+                <h2>{age}</h2>
+            );
+        }
+
+        function PhoneCard({ phone }) {
+            return (
+                <h3>{phone}</h3>
+            );
+        }
+
+        function EmailCard({ email }) {
+            return (
+                <h3>{email}</h3>
+            );
+        }
+
+        function UserInfo({ user }) {
+            return (
+                <div style={customStyle}>
+                    <NameCard name={user.name} />
+                    <AgeCard age={user.age} />
+                    <PhoneCard phone={user.phone} />
+                    <EmailCard email={user.email} />
+
+                </div>
+            );
+        }
+
+        function App() {
+            return (
+                <>
+                    <UserInfo user={user1} />
+                    <UserInfo user={user2} />
+                    <UserInfo user={user3} />
+                </>
+            )
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+
+</html>
