@@ -25,6 +25,7 @@
             const printNumber = useCallback(() => {
                 console.log('current number: ', number);
             }, [number]); //number 값이 바뀔때만 이 함수를 새로 만들어라
+            // 함수 안에서 사용하는 state나 props가 있다면, 반드시 의존성 배열에 넣어줘야 한다.
 
             // const printNumber = () => {
             //     console.log('current number: ', number);
