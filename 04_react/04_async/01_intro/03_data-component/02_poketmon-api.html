@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        function Title() {
+            return <h1>포켓몬 목록</h1>
+        }
+
+        const API_URL = 'https://pokeapi.co/api/v2/pokemon'
+
+        function PokemonList() {
+            const [pokemons, setPokemons] = useState([]);
+            const [loading, setLoading] = useState(true);
+            const [error, setError] = useState(null);
+
+            useEffect(() => {
+                const fetchAllPokemonData = async () => {
+                    try {
+                        //1. 최초 포켓몬 목록(이름과 상세정보 url)을 가져온다.
+                        const listResponse = await fetch(API_URL);
+
+                        if (!listResponse.ok) throw new Error('포켓몬 목록을 가져올 수 없습니다.')
+
+                        const listData = await listResponse.json();
+                        console.log(listData);
+
+                        //2. 각 포켓몬의 상세 정보 fecth Promise 배열을 만든다.
+                        //(map을 활용하여 상세 정보 url로 fetch 요청해서 return res.json(); )
+                        const detailPromise = listData.results.map(pokemon =>
+                            fetch(pokemon.url).then(res => {
+                                if (!res.ok) throw new Error('정보를 가져올 수 없습니다.')
+                                return res.json();
+                            })
+                        );
+                        console.log('생성된 Promise 배열', detailPromise)
+
+                        //3.Promise.all로 모든상세 정보 요청이 완료될때까지 기다린다.
+                        // 배열 안의 모든 Promise가 이행될 때까지 기다렷다가, 결과를 배열로 한꺼번에 반환한다.
+                        const detailedPokemons = await Promise.all(detailPromise);
+
+                        /*참고: Promise.all()은 배열 안 Promise 중 하나라도 reject 되면 전체가 reject 됨
+                        만약 일부가 실패해도 나머지는 계속 처리하고 싶다면 Promise.addSettled() 사용 */
+
+                        //4. 상태를 업데이트 한다.
+                        setPokemons(detailedPokemons);
+
+
+                    } catch (error) {
+                        console.error(error);
+                        setError(error);
+                    } finally {
+                        setLoading(false);
+                    }
+
+                }
+                fetchAllPokemonData();
+            }, [])
+            if (loading) return <p>모든 포켓몬을 불러오는중 ...</p>
+            if (error) return <p>오류가 발생했습니다.: {error.message}</p>
+
+            return (
+
+                <>
+                    {pokemons.map(pokemon => <Card key={pokemon.id} pokemon={pokemon} />)}
+                </>
+            )
+
+        }
+
+        function Card({ pokemon }) {
+            return (
+                <div className="card">
+                    <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
+                    <div className='info'>
+                        <h2>N0. {pokemon.id}</h2>
+                        <h3>name: {pokemon.name}</h3>
+                    </div>
+                </div>
+            )
+        }
+
+        function App() {
+            return (
+                <>
+                    <Title />
+                    <PokemonList />
+                </>
+            )
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+
+</html>
