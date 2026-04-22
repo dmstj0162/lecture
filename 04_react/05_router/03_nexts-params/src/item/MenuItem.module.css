@@ -1,0 +1,11 @@
+.MenuItem {
+    width: 300px;
+    background-color: antiquewhite;
+    cursor: pointer;
+    color: blue;
+}
+
+.MenuItem:hover {
+    background-color: brown;
+    color: white;
+}
