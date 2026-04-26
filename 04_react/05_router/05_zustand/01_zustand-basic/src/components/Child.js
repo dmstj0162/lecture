@@ -1,8 +1,7 @@
-'use client';
+"use client";
 
 import GrandChild from "./GrandChild";
 
 export default function Child() {
-
-    return <GrandChild />
+  return <GrandChild />;
 }
