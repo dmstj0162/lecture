@@ -33,6 +33,10 @@ public class Application2 {
          * 논리식 && 논리식 : 앞의 결과가 false이면 뒤를 실행 안함
          * 논리식 || 논리식 : 앞의 결과가 true이면 뒤를 실행 안함
          */
+        int num3 = 10;
+
+        int result2 = (false && ++num3 > 0)? num3 : num3;
+        System.out.println(result2);
 
         /*
         *삼항 연산자
