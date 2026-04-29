@@ -42,7 +42,7 @@ public class Application2 {
         int num1 = 10;
         int num2 = 20;
 
-        String result = (num1>0)? "양수다":"양수가 아니다";
+        String result = (num1 > 0)? "양수다":"양수가 아니다";
         System.out.println(result);
     }
 }
