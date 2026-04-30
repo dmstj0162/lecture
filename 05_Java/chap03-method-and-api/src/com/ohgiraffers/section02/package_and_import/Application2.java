@@ -5,7 +5,7 @@ import java.util.Random;
 public class Application2 {
     public static void main(String[] args) {
         /*
-        * java.lang.Math
+        * java.lang.Math 클래스
         * 수학에서 자주 사용하는 상수들과 함수들을 미리 구현해놓은 클래스로, 모든 메소드는 static 메소드이다.
         * java.lang 패키지에 속해 있어 별도의 import가 필요 없다.
         * */
