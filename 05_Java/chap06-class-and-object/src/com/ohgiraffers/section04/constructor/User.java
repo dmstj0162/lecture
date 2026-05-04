@@ -23,7 +23,7 @@ public class User {
     * }
     * */
 
-    // 1. 기본 생성자
+    // 1. 기본 생성자 - 만약 매개변수 있는 생성자가 하나라도 있다면 컴파일러가 자동으로 생성해주지 않음
     public User(){
         System.out.println("User 클래스의 기본 생성자 호출됨...");
     }
