@@ -1,0 +1,82 @@
+package com.ohgiraffers.section04.constructor;
+
+import java.util.Date;
+
+public class User {
+
+    private String id;
+    private String pwd;
+    private String name;
+    private java.util.Date enrollDate;
+
+    /*
+    * [ 생성자 ]
+    * new 연산자를 통해 객체가 메모리(heap)에 생성될 때, 가장 먼저 단 한 번 호출되는 초기화 메소드
+    * 객체의 필드를 원하는 값으로 '초기화'
+    *
+    * [생성자 작성 규칙]
+    * 1. 이름이 클래스명과 반드시 동일해야 한다.
+    * 2. 반환타입(void, int 등)을 쓰지 않는다.
+    *
+    * 접근제한자 클래스명(매개변수){
+    *   필드 초기화 코드
+    * }
+    * */
+
+    // 1. 기본 생성자
+    public User(){
+        System.out.println("User 클래스의 기본 생성자 호출됨...");
+    }
+
+    // 2. 매개변수 있는 생성자
+    public User(String id, String pwd, String name){
+        // this: '생성된 객체 자기 자신'을 가리키는 키워드
+        this.id = id;
+        this.pwd = pwd;
+        this.name = name;
+        System.out.println("id, pwd, name을 초기화하는 생성자 호출");
+    }
+    public User(String id, String pwd, String name, java.util.Date enrollDate){
+        this.id = id;
+        this.pwd = pwd;
+        this.name = name;
+        this.enrollDate = enrollDate;
+        System.out.println("id, pwd, name을 초기화하는 생성자 호출");
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getEnrollDate() {
+        return enrollDate;
+    }
+
+    public void setEnrollDate(Date enrollDate) {
+        this.enrollDate = enrollDate;
+    }
+
+    public String getInfo() {
+        return "User [id="+ this.id + ", pwd=" + this.pwd + ", name=" + this.name + ", enrollDate =" + this.enrollDate+"]";
+    }
+}
