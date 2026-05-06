@@ -24,6 +24,34 @@ public class Application {
         carArr[2] = new Car("롤스로이스", 200);
 
         carArr[0].driveMaxSpeed();
+
+        for(int i = 0; i < carArr.length; i++){
+            carArr[i].driveMaxSpeed();
+        }
+
+        int[] arr = {1,2,3,4,5};
+        // 객체 배열도 선언과 동시에 리터럴({})로 초기화 할 수 있다.
+        Car[] carArr2 = {
+                new Car("페라리", 300),
+                new Car("람보르기니", 350),
+                new Car("롤스로이스", 250)
+        };
+        // 향상된 for문, 읽기 전용
+        for(Car car : carArr2){
+            car.driveMaxSpeed();
+        }
+
+        /* 가장 빠른 차 찾기 */
+        // 1. 첫 번째 차를 '가장 빠른 차'라고 가정
+        Car fastestCar = carArr[0];
+
+        // 2. 두 번째 차부터 비교 -  더 빠른 차가 나오면 교체
+        for(int i = 1; i < carArr.length; i++){
+            if(carArr[i].getMaxSpeed() > fastestCar.getMaxSpeed()){
+                fastestCar = carArr[i];
+            }
+        }
+        System.out.println("가장 빠른 차: "+ fastestCar.getModelName() + "시속: " + fastestCar.getMaxSpeed());
     }
 
 }
