@@ -17,23 +17,11 @@ public class Person {
         this.weight = weight;
     }
 
-    public int getAge() {
-        return age;
-    };
-
-    public double getHeight(){
-        return height;
-    }
-
-    public double getWeight(){
-        return weight;
-    }
-
     public String information(){
         return "이름: " +name+
-                "나이: " +age+
-                "신장: " +height+
-                "몸무게: " +weight;
+                ", 나이: " +age+
+                ", 신장: " +height+
+                ", 몸무게: " +weight;
     }
 }
 

@@ -15,9 +15,8 @@ public class Student extends Person {
     }
 
     public String information() {
-        return "이름: " +name+
-                "나이: " +age+
-                "신장: " +height+
-                "몸무게: " +weight;
+        return super.information() +
+                ", 학년 : " + grade +
+                ", 전공 : " + major;
     }
 }
