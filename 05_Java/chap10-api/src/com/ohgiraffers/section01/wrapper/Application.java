@@ -36,6 +36,8 @@ public class Application {
         String bmiStr = String.valueOf(bmi);
         String bmiStr1 = bmi + "";
 
+        System.out.println(bmiStr);
+
 
     }
 }
