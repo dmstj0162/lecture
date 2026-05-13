@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/chap14-io/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/rabbit-vs-turtle/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/chap17-stream/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/chap15-enum/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/chap16-lambda/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
