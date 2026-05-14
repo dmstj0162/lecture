@@ -1,0 +1,115 @@
+# Q1
+SELECT 
+	EMP_ID,
+    EMP_NAME,
+    PHONE,
+    HIRE_DATE,
+    ENT_YN
+FROM
+	employee
+WHERE
+	ENT_YN = 'N' AND PHONE LIKE '%2' AND HIRE_DATE
+ORDER BY
+	HIRE_DATE DESC
+LIMIT 3;
+
+# Q2
+SELECT 
+	EMP_NAME,
+    JOB_NAME,
+    SALARY,
+    EMP_ID,
+    EMAIL,
+    PHONE,
+    HIRE_DATE
+FROM
+	employee,
+    job
+WHERE
+	JOB_NAME = '대리'
+ORDER BY
+	SALARY DESC;
+    
+# Q3
+SELECT
+	a.DEPT_TITLE AS '부서명', 
+    COUNT(b.DEPT_CODE) AS '인원',
+    SUM(b.SALARY) AS '급여합계',
+    AVG(b.SALARY) AS '급여평균'
+FROM
+	employee b
+JOIN
+	department a ON a.DEPT_ID = b.DEPT_CODE
+WHERE
+	b.DEPT_CODE IS NOT NULL
+GROUP BY
+	a.DEPT_TITLE
+WITH ROLLUP;
+
+# Q4
+SELECT
+	a.EMP_NAME,
+    a.EMP_NO,
+    a.PHONE,
+    a.HIRE_DATE,
+    b.DEPT_ID,
+    b.DEPT_TITLE,
+    c.JOB_NAME
+FROM
+	employee a
+JOIN
+	department b ON a.DEPT_CODE = b.DEPT_ID
+JOIN 
+	job c ON a.JOB_CODE = c.JOB_CODE
+ORDER BY
+	a.HIRE_DATE;
+
+# Q5
+SELECT 
+	COUNT(MANAGER_ID) AS 'COUNT(*)'
+FROM
+	employee
+WHERE MANAGER_ID IS NOT NULL;
+
+# Q6
+SELECT
+	COUNT(a.MANAGER_ID) AS 'COUNT(*)'
+FROM
+	employee a
+JOIN 
+	employee b ON a.MANAGER_ID = b.EMP_ID;
+    
+# Q7
+SELECT
+	a.EMP_NAME AS 'EMP_NAME',
+    b.EMP_NAME AS 'EMP_NAME'
+FROM
+	employee a 
+LEFT JOIN
+	employee b ON a.MANAGER_ID = b.EMP_ID
+ORDER BY
+	a.EMP_NAME;
+
+# Q8
+SELECT
+	a.EMP_NAME AS 'EMP_NAME',
+    c.DEPT_TITLE AS 'DEPT_TITLE',
+    b.EMP_NAME AS 'EMP_NAME',
+    d.DEPT_TITLE AS 'DEPT_TITLE'
+FROM
+	employee a
+LEFT JOIN
+	employee b ON a.MANAGER_ID = b.EMP_ID
+LEFT JOIN
+	department c ON c.DEPT_ID = a.DEPT_CODE
+LEFT JOIN
+	department d ON b.DEPT_CODE = d.DEPT_ID
+WHERE
+	b.EMP_NAME IS NOT NULL
+ORDER BY
+	a.EMP_NAME;
+
+    
+
+
+	
