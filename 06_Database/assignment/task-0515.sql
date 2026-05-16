@@ -100,6 +100,29 @@ JOIN (SELECT
 	ON e.DEPT_CODE = temp.DEPT_ID
 	ORDER BY
 		temp.NATIONAL_NAME DESC;
+
+# Q5
+SELECT
+	e.EMP_ID,
+    e.EMP_NAME,
+    e.SALARY,
+    d.DEPT_TITLE,
+    n.NATIONAL_NAME,
+	e.SALARY+s.MIN_SAL AS '위로금'
+FROM
+	employee e
+JOIN 
+	department d ON d.DEPT_ID = e.DEPT_CODE
+JOIN 
+	location l ON d.LOCATION_ID = l.LOCAL_CODE
+JOIN 
+	nation n ON l.NATIONAL_CODE = n.NATIONAL_CODE
+JOIN
+	sal_grade s ON e.SAL_LEVEL = s.SAL_LEVEL
+WHERE
+	n.NATIONAL_NAME='러시아'
+ORDER BY
+	위로금 DESC;
 	
 
 
