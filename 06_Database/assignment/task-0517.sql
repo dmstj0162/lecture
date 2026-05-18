@@ -118,4 +118,87 @@ JOIN department d ON e.DEPT_CODE = d.DEPT_ID
 JOIN job j ON e.JOB_CODE = j.JOB_CODE
 WHERE
 	e.SALARY BETWEEN 2000000 AND 3000000;
+    
+# Q4-2
+SELECT
+	temp.EMP_NAME,
+    temp.SALARY,
+    COUNT(*)
+FROM (
+SELECT 
+	e.EMP_ID,
+    e.EMP_NAME,
+    e.PHONE,
+    d.DEPT_TITLE,
+    j.JOB_NAME,
+	e.SALARY
+FROM 
+	employee e
+JOIN department d ON e.DEPT_CODE = d.DEPT_ID
+JOIN job j ON e.JOB_CODE = j.JOB_CODE
+WHERE
+	d.DEPT_TITLE NOT LIKE '%영업%' AND j.JOB_NAME IN ('대리','차장')
+UNION ALL
+SELECT
+	e.EMP_ID,
+    e.EMP_NAME,
+    e.PHONE,
+    d.DEPT_TITLE,
+    j.JOB_NAME,
+	e.SALARY
+FROM 
+	employee e
+JOIN department d ON e.DEPT_CODE = d.DEPT_ID
+JOIN job j ON e.JOB_CODE = j.JOB_CODE
+WHERE
+	e.SALARY BETWEEN 2000000 AND 3000000) As temp
+GROUP BY
+	EMP_NAME,
+    SALARY;
+
+# Q4-3
+SELECT
+	temp.EMP_NAME,
+    temp.SALARY,
+    COUNT(*)
+FROM (
+SELECT 
+	e.EMP_ID,
+    e.EMP_NAME,
+    e.PHONE,
+    d.DEPT_TITLE,
+    j.JOB_NAME,
+	e.SALARY
+FROM 
+	employee e
+JOIN department d ON e.DEPT_CODE = d.DEPT_ID
+JOIN job j ON e.JOB_CODE = j.JOB_CODE
+WHERE
+	d.DEPT_TITLE NOT LIKE '%영업%' AND j.JOB_NAME IN ('대리','차장')
+UNION ALL
+SELECT
+	e.EMP_ID,
+    e.EMP_NAME,
+    e.PHONE,
+    d.DEPT_TITLE,
+    j.JOB_NAME,
+	e.SALARY
+FROM 
+	employee e
+JOIN department d ON e.DEPT_CODE = d.DEPT_ID
+JOIN job j ON e.JOB_CODE = j.JOB_CODE
+WHERE
+	e.SALARY BETWEEN 2000000 AND 3000000) As temp
+GROUP BY
+	EMP_NAME,
+    SALARY
+ORDER BY
+	COUNT(*) DESC,
+    SALARY DESC
+LIMIT
+	3;
+
+
+    
+    
 	
