@@ -11,8 +11,7 @@ public class MenuDTO {
     public MenuDTO() {
     }
 
-    public MenuDTO(int menuCode, String menuName, int menuPrice, int categoryCode, String orderableStatus) {
-        this.menuCode = menuCode;
+    public MenuDTO( String menuName, int menuPrice, int categoryCode, String orderableStatus) {
         this.menuName = menuName;
         this.menuPrice = menuPrice;
         this.categoryCode = categoryCode;
