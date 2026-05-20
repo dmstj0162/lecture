@@ -59,6 +59,7 @@
     const reloadButton = document.querySelector('#reload-button');
     const memoList = document.querySelector('#memo-list');
 
+    //목록조회
     async function fetchMemos() {
         const response = await fetch('/api/memos');
         const memos = await response.json();
@@ -71,6 +72,7 @@
         });
     }
 
+    // 메모등록
     async function createMemo(content) {
         const response = await fetch('/api/memos', {
             method: 'POST',
@@ -91,7 +93,7 @@
     }
 
     form.addEventListener('submit', async (event) => {
-        event.preventDefault();
+        event.preventDefault();     // 폼 제출시 페이지가 새로고침 되는 기본 동작을 막는다.
 
         const content = input.value.trim();
         if (!content) {
@@ -104,7 +106,7 @@
 
     reloadButton.addEventListener('click', fetchMemos);
 
-    fetchMemos();
+    fetchMemos();   // 페이지가 처음 열렸을 때 목록을 불러오기 위함
 </script>
 </body>
 </html>

@@ -40,6 +40,7 @@ public class MemoApiServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("application/json; charset=UTF-8");
 
+        // JSON Body를 req.getReader()로 읽고 Jackson의 readValue()로 MemoDTO로 변환
         MemoDTO requestMemo = mapper.readValue(req.getReader(), MemoDTO.class);
         String content = requestMemo.getContent() == null ? "":requestMemo.getContent().trim();
 
@@ -52,9 +53,12 @@ public class MemoApiServlet extends HttpServlet {
         memos.add(savedMemo);
 
         resp.setStatus(HttpServletResponse.SC_CREATED);
+
+        // savedMemo를 json으로 바꿔서 응답
         mapper.writeValue(resp.getWriter(), savedMemo);
     }
 
+    // 에러를 {"message" : "content is required"} 형태로 응답하기 위한 객체
     static class ErrorResponse {
 
         private final String message;
