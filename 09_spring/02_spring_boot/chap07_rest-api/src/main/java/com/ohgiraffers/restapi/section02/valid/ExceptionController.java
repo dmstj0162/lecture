@@ -1,6 +1,5 @@
-package com.ohgiraffers.restapi.section01.section02.valid;
+package com.ohgiraffers.restapi.section02.valid;
 
-import com.ohgiraffers.restapi.section01.responseentity.ResponseEntityTestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;

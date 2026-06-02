@@ -1,7 +1,6 @@
-package com.ohgiraffers.restapi.section01.section02.valid;
+package com.ohgiraffers.restapi.section02.valid;
 
 import jakarta.validation.Valid;
-import org.apache.coyote.http11.filters.VoidInputFilter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

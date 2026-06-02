@@ -1,4 +1,4 @@
-package com.ohgiraffers.restapi.section01.section02.valid;
+package com.ohgiraffers.restapi.section02.valid;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
