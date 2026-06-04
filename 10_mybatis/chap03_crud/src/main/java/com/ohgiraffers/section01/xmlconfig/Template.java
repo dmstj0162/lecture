@@ -32,10 +32,6 @@ public class Template {
 
         SqlSession sqlSession = sqlSessionFactory.openSession(false);
 
-        System.out.println("sqlSessionFactory " + sqlSessionFactory.hashCode());
-        System.out.println("sqlSession " + sqlSession.hashCode());
-        System.out.println();
-
         return sqlSession;
 
     }
