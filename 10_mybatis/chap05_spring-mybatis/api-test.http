@@ -1,0 +1,8 @@
+### 1. 메뉴 목록 조회
+GET localhost:8080/api/v1/menus
+
+### 2. 메뉴 단건 조회
+GET localhost:8080/api/v1/menus/9
+
+###
+GET localhost:8080/api/v1/categories

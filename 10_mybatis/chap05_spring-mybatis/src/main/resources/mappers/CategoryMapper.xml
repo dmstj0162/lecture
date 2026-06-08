@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.springmybatis.menu.model.dao.CategoryMapper">
+
+    <resultMap id="CategoryResultMap" type="com.ohgiraffers.springmybatis.menu.model.dto.CategoryDTO">
+        <id property="code" column="category_code"/>
+        <result property="name" column="category_name"/>
+        <result property="refCategoryCode" column="ref_category_code"/>
+    </resultMap>
+
+    <select id="findCategoryList" resultMap="CategoryResultMap">
+        select
+        category_code
+        , category_name
+        , ref_category_code
+        from tbl_category
+    </select>
+
+</mapper>
