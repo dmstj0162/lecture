@@ -98,4 +98,26 @@ public class MenuService {
             sqlSession.close();
         }
     }
+
+    public void modifyMenu(Map<String, Object> criteria) {
+        SqlSession sqlSession = getSqlSession();
+
+        try{
+            DynamicSqlMapper mapper = sqlSession.getMapper(DynamicSqlMapper.class);
+            int result = mapper.modifyMenu(criteria);
+
+            if(result > 0) {
+                System.out.println("메뉴 정보 변경 성공");
+                sqlSession.commit();
+            }else{
+                System.out.println("메뉴 정보 변경 실패");
+                sqlSession.rollback();
+            }
+        } catch(RuntimeException e){
+            sqlSession.rollback();
+            throw e;
+        }finally {
+            sqlSession.close();
+        }
+    }
 }
