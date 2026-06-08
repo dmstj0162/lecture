@@ -47,4 +47,55 @@ public class MenuService {
             System.out.println("검색 결과가 존재하지 않습니다.");
         }
     }
+
+    public void searchMenuBySupCategory(SearchCriteria searchCriteria) {
+        SqlSession sqlSession = getSqlSession();
+
+        try{
+            DynamicSqlMapper mapper = sqlSession.getMapper(DynamicSqlMapper.class);
+            printMenuList(mapper.searchMenuBySupCategory(searchCriteria));
+        }finally {
+            sqlSession.close();
+        }
+    }
+
+    public void searchMenuByRandomMenuCode(List<Integer> randomMenuCodeList) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        try{
+            DynamicSqlMapper mapper = sqlSession.getMapper(DynamicSqlMapper.class);
+
+            Map<String, List<Integer>> criteria = new HashMap<>();
+            // Map의 Key 이름 = foreach의 collection 이름
+            criteria.put("randomMenuCodeList", randomMenuCodeList);
+
+            printMenuList(mapper.searchMenuByRandomMenuCode(criteria));
+        }finally{
+            sqlSession.close();
+        }
+    }
+
+    public void searchMenuByCodeOrSearchAll(SearchCriteria searchCriteria) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        try{
+            DynamicSqlMapper mapper = sqlSession.getMapper(DynamicSqlMapper.class);
+            printMenuList(mapper.searchMenuByCodeOrSearchAll(searchCriteria));
+        }finally{
+            sqlSession.close();
+        }
+    }
+
+    public void searchMenuByNameOrCategory(Map<String, Object> criteria) {
+
+        SqlSession sqlSession = getSqlSession();
+        try{
+            DynamicSqlMapper mapper = sqlSession.getMapper(DynamicSqlMapper.class);
+            printMenuList(mapper.searchMenuByNameOrCategory(criteria));
+        }finally{
+            sqlSession.close();
+        }
+    }
 }
