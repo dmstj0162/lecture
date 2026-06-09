@@ -4,7 +4,7 @@ import org.springframework.http.ResponseEntity;
 
 public class MenuDTO {
 
-    private int code;
+    private Integer code;
     private String name;
     private int price;
     private int categoryCode;
@@ -13,7 +13,7 @@ public class MenuDTO {
     public MenuDTO() {
     }
 
-    public MenuDTO(int code, String name, int price, int categoryCode, String orderableStatus) {
+    public MenuDTO(Integer code, String name, int price, int categoryCode, String orderableStatus) {
         this.code = code;
         this.name = name;
         this.price = price;
@@ -21,11 +21,11 @@ public class MenuDTO {
         this.orderableStatus = orderableStatus;
     }
 
-    public int getCode() {
+    public Integer getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 

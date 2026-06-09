@@ -4,5 +4,30 @@ GET localhost:8080/api/v1/menus
 ### 2. 메뉴 단건 조회
 GET localhost:8080/api/v1/menus/9
 
-###
+### 3. 카테고리 목록 조회
 GET localhost:8080/api/v1/categories
+
+### 4. 신규 메뉴 등록
+POST localhost:8080/api/v1/menus
+Content-Type: application/json
+
+{
+  "name" : "닭발",
+  "price": 10000,
+  "categoryCode": 4,
+  "orderableStatus": "Y"
+}
+
+### 5. 메뉴 수정
+PUT localhost:8080/api/v1/menus/25
+Content-Type: application/json
+
+{
+  "name": "국물닭발",
+  "price": 15000,
+  "categoryCode": 5,
+  "orderableStatus": "Y"
+}
+
+### 6. 메뉴 삭제 - 실제 DELETE 아니라 판매 여부 N으로 바꾸는 soft delete
+DELETE localhost:8080/api/v1/menus/25
