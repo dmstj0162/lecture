@@ -6,11 +6,14 @@ import java.time.LocalDateTime;
 
 @Entity(name = "entityMember")
 @Table(name = "tbl_member")
+@Access(AccessType.FIELD)
 public class Member {
     @Id
     @Column(name = "member_no")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int memberNo;
+
+    @Access(AccessType.FIELD)
     @Column(
             name = "member_id", unique = true,
             nullable = false, columnDefinition = "varchar(10)"
@@ -18,6 +21,8 @@ public class Member {
     private String memberId;
     @Column(name = "member_pwd", nullable = false)
     private String memberPwd;
+
+    @Access(AccessType.PROPERTY)
     @Column(name = "member_name")
     private String memberName;
 
@@ -49,5 +54,14 @@ public class Member {
         this.enrollDate = enrollDate;
         this.memberRole = memberRole;
         this.status = status;
+    }
+
+    public void setMemberName(String memberName) {
+        this.memberName = memberName;
+    }
+
+    public String getMemberName() {
+        System.out.println("getMemberName 메소드를 통한 Access 확인");
+        return memberName + " 님";
     }
 }

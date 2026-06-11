@@ -28,4 +28,10 @@ public class MemberService {
 
         memberRepository.save(member);
     }
+
+    @Transactional
+    public String registMemberAndFindName(MemberRegistDTO newMember) {
+        registMember(newMember);
+        return memberRepository.findNameById(newMember.getMemberId());
+    }
 }

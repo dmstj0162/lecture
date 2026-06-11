@@ -8,11 +8,15 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
+@Transactional
 public class MemberServiceTests {
     @Autowired
     private MemberService memberService;
@@ -64,5 +68,32 @@ public class MemberServiceTests {
         Assertions.assertDoesNotThrow(
                 () -> memberService.registMember(newMember)
         );
+    }
+
+    @DisplayName("프로퍼티 접근 테스트")
+    @ParameterizedTest
+    @MethodSource("getMember")
+    void testAccessProperty(
+            String memberId, String memberPwd,
+            String memberName, String phone, String address,
+            LocalDateTime enrollDate, MemberRole memberRole, String status
+    ){
+        //given
+        MemberRegistDTO newMember = new MemberRegistDTO(
+                memberId,
+                memberPwd,
+                memberName,
+                phone,
+                address,
+                enrollDate,
+                memberRole,
+                status
+        );
+        //when
+        String registedName = memberService.registMemberAndFindName(newMember);
+
+        //then
+        assertEquals(memberName +" 님", registedName);
+
     }
 }

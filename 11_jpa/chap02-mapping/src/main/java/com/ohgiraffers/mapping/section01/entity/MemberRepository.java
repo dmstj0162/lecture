@@ -13,4 +13,9 @@ public class MemberRepository {
     public void save(Member member) {
         entityManager.persist(member);
     }
+
+    public String findNameById(String memberId) {
+        String jpql = "SELECT m.memberName FROM entityMember m WHERE m.memberId = '" + memberId + "'";
+        return entityManager.createQuery(jpql, String.class).getSingleResult();
+    }
 }
