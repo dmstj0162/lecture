@@ -1,32 +1,21 @@
 package com.ohgiraffers.associationmapping.section02.onetomany;
 
-import jakarta.persistence.*;
-
 import java.util.List;
 
-@Entity(name="category_and_menu")
-@Table(name="tbl_category")
-public class Category {
-
-    @Id
-    private int categoryCode;
+public class CategoryDTO {
+    private  int categoryCode;
     private String categoryName;
     private Integer refCategoryCode;
+    private List<MenuDTO> menuList;
 
-    /* 즉시 로딩 or 지연 로딩 */
-    /* @OneToMany : 기본적으로 지연 로딩, 필요에 따라 즉시 로딩으로 바꿀 수 있다(EAGER)*/
-    @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
-    @JoinColumn(name="categoryCode")        // FK 컬럼을 기재
-    private List<Menu> meuList;
-
-    public Category() {
+    public CategoryDTO() {
     }
 
-    public Category(int categoryCode, String categoryName, Integer refCategoryCode, List<Menu> meuList) {
+    public CategoryDTO(int categoryCode, String categoryName, Integer refCategoryCode, List<MenuDTO> menuList) {
         this.categoryCode = categoryCode;
         this.categoryName = categoryName;
         this.refCategoryCode = refCategoryCode;
-        this.meuList = meuList;
+        this.menuList = menuList;
     }
 
     public int getCategoryCode() {
@@ -53,21 +42,21 @@ public class Category {
         this.refCategoryCode = refCategoryCode;
     }
 
-    public List<Menu> getMeuList() {
-        return meuList;
+    public List<MenuDTO> getMenuList() {
+        return menuList;
     }
 
-    public void setMeuList(List<Menu> meuList) {
-        this.meuList = meuList;
+    public void setMenuList(List<MenuDTO> menuList) {
+        this.menuList = menuList;
     }
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "CategoryDTO{" +
                 "categoryCode=" + categoryCode +
                 ", categoryName='" + categoryName + '\'' +
                 ", refCategoryCode=" + refCategoryCode +
-                ", meuList=" + meuList +
+                ", menuList=" + menuList +
                 '}';
     }
 }

@@ -13,4 +13,8 @@ public class OneToManyRepository {
     public Category find(int categoryCode) {
         return entityManager.find(Category.class, categoryCode);
     }
+
+    public void regist(Category category) {
+        entityManager.persist(category);
+    }
 }
