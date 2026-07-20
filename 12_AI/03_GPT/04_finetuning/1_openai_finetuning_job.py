@@ -1,6 +1,7 @@
 import json
 from openai import OpenAI
 from dotenv import load_dotenv
+from pathlib import Path
 
 load_dotenv()
 client=OpenAI()
