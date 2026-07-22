@@ -18,5 +18,6 @@ def build_chain():
         raise ValueError(
             "OPENAI_API_KEY가 설정되어 있지 않습니다. .env파일을 작성해 주세요"
         )
+    
 if __name__ == "__main__":
     build_chain()
